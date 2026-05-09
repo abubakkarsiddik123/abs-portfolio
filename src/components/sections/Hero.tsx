@@ -21,33 +21,33 @@ export default function Hero() {
   const magneticBtn1 = useMagnetic();
   const magneticBtn2 = useMagnetic();
   const parallaxRef = useParallax(0.05);
-useEffect(() => {
-  if (!headingRef.current) return;
+  useEffect(() => {
+    if (!headingRef.current) return;
 
-  const el = headingRef.current;
+    const el = headingRef.current;
 
-  const split = new SplitType(el, {
-    types: "words, chars",
-  });
+    const split = new SplitType(el, {
+      types: "words, chars",
+    });
 
-  const chars = split.chars || [];
+    const chars = split.chars || [];
 
-  gsap.set(chars, {
-    opacity: 0,
-  });
+    gsap.set(chars, {
+      opacity: 0,
+    });
 
-  const anim = gsap.to(chars, {
-    opacity: 1,
-    stagger: 0.05,
-    duration: 0.01,
-    ease: "none",
-  });
+    const anim = gsap.to(chars, {
+      opacity: 1,
+      stagger: 0.05,
+      duration: 0.01,
+      ease: "none",
+    });
 
-  return () => {
-    anim.kill();
-    split.revert();
-  };
-}, []);
+    return () => {
+      anim.kill();
+      split.revert();
+    };
+  }, []);
   return (
     <section
       id="home"
@@ -77,19 +77,19 @@ useEffect(() => {
       >
         {/* LEFT CONTENT */}
         <div className="md:col-span-7 z-10">
-<motion.h1
-  initial={{ opacity: 0, y: 50 }}
-  animate={{
-    opacity: 1,
-    y: [0, -10, 0],
-  }}
-  transition={{
-    duration: 2,
-    ease: "easeInOut",
-    repeat: Infinity,
-    repeatType: "mirror",
-  }}
-  className="
+          <motion.h1
+            initial={{ opacity: 0, y: 50 }}
+            animate={{
+              opacity: 1,
+              y: [0, -10, 0],
+            }}
+            transition={{
+              duration: 2,
+              ease: "easeInOut",
+              repeat: Infinity,
+              repeatType: "mirror",
+            }}
+            className="
      font-Outfit  
      antialiased tracking-tight
     font-display
@@ -105,9 +105,9 @@ useEffect(() => {
     via-[#8B5CF6]
     to-[#FF00FF]
   "
->
-  Hi, <br /> I'm Abu Bakkar Siddik.
-</motion.h1>
+          >
+            Hi, <br /> I'm Abu Bakkar Siddik.
+          </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -125,70 +125,82 @@ useEffect(() => {
           </motion.p>
 
           <div className="flex flex-wrap gap-5">
+
+            {/* HIRE ME */}
             <div ref={magneticBtn1}>
               <button
+                onClick={() =>
+                  document
+                    .getElementById("contact")
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }
                 className="
-                  interactive
-                  bg-[#FF00FF]
-                  text-white
-                  text-[12px]
-                  px-4
-                  py-2
-                  lg:px-8
-                  lg:py-4
-                  rounded-2xl
-                  hover:scale-105
-                  transition-all
-                  uppercase
-                  tracking-[0.2em]
-                  relative
-                  overflow-hidden
-                  group
-                  shadow-[0_0_40px_rgba(255,0,255,0.5)]
-                "
+        interactive
+        bg-[#FF00FF]
+        text-white
+        text-[12px]
+        px-4
+        py-2
+        lg:px-8
+        lg:py-4
+        rounded-2xl
+        hover:scale-105
+        transition-all
+        uppercase
+        tracking-[0.2em]
+        relative
+        overflow-hidden
+        group
+        shadow-[0_0_40px_rgba(255,0,255,0.5)]
+      "
               >
-                <span className="relative z-10">
-                  INITIALIZE_STREAM
-                </span>
+                <span className="relative z-10">HIRE ME</span>
 
                 <div
                   className="
-                    absolute
-                    inset-0
-                    bg-white/20
-                    translate-y-full
-                    group-hover:translate-y-0
-                    transition-transform
-                    duration-300
-                  "
+          absolute
+          inset-0
+          bg-white/20
+          translate-y-full
+          group-hover:translate-y-0
+          transition-transform
+          duration-300
+        "
                 />
               </button>
             </div>
 
+            {/* VIEW PROJECTS */}
             <div ref={magneticBtn2}>
               <button
+                onClick={() =>
+                  document
+                    .getElementById("projects")
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }
                 className="
-                  interactive
-                  border
-                  border-[#00F5FF]
-                  text-[#00F5FF]
-                  text-[12px]
-                  px-4
-                  py-2
-                  lg:px-8
-                  lg:py-4
-                  rounded-2xl
-                  hover:bg-[#00F5FF]/10
-                  hover:scale-105
-                  transition-all
-                  uppercase
-                  tracking-[0.2em]
-                  shadow-[0_0_30px_rgba(0,245,255,0.3)]
-                "
+        interactive
+        border
+        border-[#00F5FF]
+        text-[#00F5FF]
+        text-[12px]
+        px-4
+        py-2
+        lg:px-8
+        lg:py-4
+        rounded-2xl
+        hover:bg-[#00F5FF]/10
+        hover:scale-105
+        transition-all
+        uppercase
+        tracking-[0.2em]
+        shadow-[0_0_30px_rgba(0,245,255,0.3)]
+      "
               >
-                VIEW_CORE
+                VIEW PROJECTS
               </button>
             </div>
+
           </div>
         </div>
 
