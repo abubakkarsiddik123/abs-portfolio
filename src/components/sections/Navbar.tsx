@@ -81,8 +81,8 @@ export default function Navbar() {
           <Image
             src="/bannarlogo.png"
             alt="logo"
-            width={90}
-            height={90}
+            width={60}
+            height={60}
             className="cursor-pointer"
           />
         </div>
@@ -99,12 +99,12 @@ export default function Navbar() {
         </div>
 
         {/* RIGHT: RESUME BUTTON */}
-<motion.a
-  whileHover={{ scale: 1.05 }}
-  whileTap={{ scale: 0.95 }}
-  href="/resume.pdf"
-  download="Abu_Bakkar_Siddik_Resume.pdf"
-  className="
+        <motion.a
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          href="/resume.pdf"
+          download="Abu_Bakkar_Siddik_Resume.pdf"
+          className="
     group
     flex
     items-center
@@ -123,22 +123,22 @@ export default function Navbar() {
     hover:shadow-[0_0_20px_rgba(0,245,255,0.5)]
     transition-all
   "
->
-  RESUME
+        >
+          RESUME
 
-  {/* FLOATING ICON */}
-  <motion.span
-    animate={{ y: [0, -4, 0] }}
-    transition={{
-      duration: 1.2,
-      repeat: Infinity,
-      ease: "easeInOut",
-    }}
-    className="flex items-center"
-  >
-    <FiDownload className="text-[16px]" />
-  </motion.span>
-</motion.a>
+          {/* FLOATING ICON */}
+          <motion.span
+            animate={{ y: [0, -4, 0] }}
+            transition={{
+              duration: 1.2,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            className="flex items-center"
+          >
+            <FiDownload className="text-[16px]" />
+          </motion.span>
+        </motion.a>
 
       </div>
     </motion.nav>
