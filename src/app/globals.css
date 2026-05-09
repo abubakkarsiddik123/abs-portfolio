@@ -1,0 +1,129 @@
+@import "tailwindcss";
+@import "lenis/dist/lenis.css";
+
+@theme {
+  --color-on-primary-fixed-variant: #4f378a;
+  --color-inverse-primary: #6750a4;
+  --color-error: #ffb4ab;
+  --color-tertiary-fixed: #ffdf93;
+  --color-tertiary-container: #c9a74d;
+  --color-on-error: #690005;
+  --color-surface-container-high: #2b292f;
+  --color-on-surface: #e6e0e9;
+  --color-on-primary-container: #e0d2ff;
+  --color-secondary-container: #4d4465;
+  --color-tertiary: #e7c365;
+  --color-surface-container-lowest: #0f0d13;
+  --color-on-primary-fixed: #22005d;
+  --color-on-primary: #381e72;
+  --color-surface-container: #211f24;
+  --color-on-secondary: #342b4b;
+  --color-secondary-fixed: #e9ddff;
+  --color-surface-container-low: #1d1b20;
+  --color-surface-container-highest: #36343a;
+  --color-primary-fixed: #e9ddff;
+  --color-on-secondary-container: #bfb2da;
+  --color-secondary: #cdc0e9;
+  --color-on-background: #e6e0e9;
+  --color-surface-variant: #36343a;
+  --color-on-tertiary-fixed: #241a00;
+  --color-inverse-surface: #e6e0e9;
+  --color-surface-dim: #141218;
+  --color-secondary-fixed-dim: #cdc0e9;
+  --color-primary: #cfbcff;
+  --color-primary-fixed-dim: #cfbcff;
+  --color-surface-tint: #cfbcff;
+  --color-on-secondary-fixed: #1f1635;
+  --color-inverse-on-surface: #322f35;
+  --color-tertiary-fixed-dim: #e7c365;
+  --color-on-tertiary-fixed-variant: #594400;
+  --color-on-surface-variant: #cbc4d2;
+  --color-on-secondary-fixed-variant: #4b4263;
+  --color-on-tertiary: #3e2e00;
+  --color-surface-bright: #3b383e;
+  --color-background: #0B1026;
+  --color-surface: #111936;
+  --color-outline-variant: #494551;
+  --color-on-error-container: #ffdad6;
+  --color-outline: #948e9c;
+  --color-on-tertiary-container: #503d00;
+  --color-error-container: #93000a;
+  --color-primary-container: #6750a4;
+
+  --spacing-stack-lg: 2rem;
+  --spacing-margin-mobile: 1rem;
+  --spacing-gutter: 1.5rem;
+  --spacing-stack-sm: 0.5rem;
+  --spacing-stack-md: 1rem;
+  --spacing-section-gap: 8rem;
+  --spacing-container-max: 1280px;
+
+  --font-label-caps: var(--font-jetbrains-mono);
+  --font-headline-sm: var(--font-poppins);
+  --font-headline-lg-mobile: var(--font-poppins);
+  --font-body-md: var(--font-inter);
+  --font-headline-md: var(--font-poppins);
+  --font-body-lg: var(--font-inter);
+  --font-display: var(--font-poppins);
+  --font-headline-lg: var(--font-poppins);
+
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+}
+
+@utility cyber-acid-gradient {
+  background: linear-gradient(135deg, #00F5FF 0%, #FF00FF 50%, #FF8A00 100%);
+}
+
+@utility glass-card {
+  background: rgba(17, 25, 54, 0.7);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@utility glow-pink {
+  filter: drop-shadow(0 0 15px rgba(255, 0, 255, 0.4));
+}
+
+@utility glow-teal {
+  filter: drop-shadow(0 0 15px rgba(0, 245, 255, 0.4));
+}
+
+@utility organic-blob {
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+}
+.char {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+.word {
+  display: inline-block;
+  white-space: nowrap;
+}
+.gradient-text {
+  background: linear-gradient(to right, #ff00ff, #8b5cf6, #00f5ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-on-background overflow-x-hidden font-body-md;
+    background-color: #0B1026;
+  }
+}
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-\[float_4s_ease-in-out_infinite\] {
+  animation: float 4s ease-in-out infinite;
+}
