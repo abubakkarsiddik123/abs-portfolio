@@ -27,7 +27,7 @@ export default function Hero() {
     const el = headingRef.current;
 
     const split = new SplitType(el, {
-      types: "words, chars",
+      types: "words,chars",
     });
 
     const chars = split.chars || [];
