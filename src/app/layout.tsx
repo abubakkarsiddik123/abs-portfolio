@@ -22,10 +22,15 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "DEV_CORE // OS - Architecting Digital Realms",
-  description: "A fusion of biological logic and synthetic precision. Creating non-linear experiences for the next evolution of the web.",
-};
+  title: "Abu Bakkar Siddik | Frontend Developer",
+  description: "React & Next.js Developer building modern web apps.",
+  keywords: ["Next.js", "React", "Frontend Developer", "Portfolio"],
+  authors: [{ name: "Abu Bakkar Siddik" }],
 
+  icons: {
+    icon: "/bannarlogo.png",
+  },
+};
 export default function RootLayout({
   children,
 }: Readonly<{
