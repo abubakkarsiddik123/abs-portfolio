@@ -14,21 +14,6 @@ const Orb = dynamic(() => import("@/components/Orb"), { ssr: false });
 export default function Hero() {
 
 
-  const text = "Hi, I'm Abu Bakkar Siddik.";
-
-const container = {
-  hidden: {},
-  show: {
-    transition: {
-      staggerChildren: 0.04,
-    },
-  },
-};
-
-const item = {
-  hidden: { opacity: 0, y: 30, filter: "blur(8px)" },
-  show: { opacity: 1, y: 0, filter: "blur(0px)" },
-};
 
   const headingRef = useRef<HTMLHeadingElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -105,6 +90,8 @@ useEffect(() => {
     repeatType: "mirror",
   }}
   className="
+     font-Outfit  
+     antialiased tracking-tight
     font-display
     text-[56px]
     sm:text-[72px]
@@ -130,6 +117,7 @@ useEffect(() => {
               text-on-surface-variant
               max-w-xl
               mb-10
+              pt-4
               leading-relaxed
             "
           >
@@ -144,8 +132,10 @@ useEffect(() => {
                   bg-[#FF00FF]
                   text-white
                   text-[12px]
-                  px-8
-                  py-4
+                  px-4
+                  py-2
+                  lg:px-8
+                  lg:py-4
                   rounded-2xl
                   hover:scale-105
                   transition-all
@@ -183,8 +173,10 @@ useEffect(() => {
                   border-[#00F5FF]
                   text-[#00F5FF]
                   text-[12px]
-                  px-8
-                  py-4
+                  px-4
+                  py-2
+                  lg:px-8
+                  lg:py-4
                   rounded-2xl
                   hover:bg-[#00F5FF]/10
                   hover:scale-105
@@ -266,7 +258,7 @@ useEffect(() => {
               priority
               className="
                 object-cover
-                object-[center_35%]
+                object-[center_30%]
                 scale-110
                 group-hover:scale-125
                 transition-transform
@@ -286,3 +278,5 @@ useEffect(() => {
     </section>
   );
 }
+
+

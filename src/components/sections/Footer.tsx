@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { Link } from "react-scroll";
+import { motion } from "framer-motion";
 import {
   FaFacebookF,
   FaInstagram,
@@ -32,22 +33,45 @@ export default function Footer() {
     <Image
       src="/bannarlogo.png"
       alt="logo"
-      width={80}
-      height={80}
+      width={100}
+      height={100}
       className="rounded-full animate-[float_4s_ease-in-out_infinite] group-hover:scale-110 transition"
     />
 
     {/* glow ring */}
-    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[#00F5FF] to-[#FF00FF] blur-2xl opacity-20 group-hover:opacity-40 transition duration-500" />
+    {/* <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[#00F5FF] to-[#FF00FF] blur-2xl opacity-20 group-hover:opacity-10 transition duration-500" /> */}
 
   </div>
 
-  {/* TEXT WITH GRADIENT SHIFT */}
-  <h2 className="text-2xl md:text-3xl font-semibold tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-white to-white/60 group-hover:from-[#00F5FF] group-hover:to-[#FF00FF] transition-all duration-700">
 
-    Abubakkar<span className="text-white/50 group-hover:text-white transition">.dev</span>
 
-  </h2>
+
+<motion.h1
+  initial={{ opacity: 0, y: 50 }}
+  animate={{
+    opacity: 1,
+    y: [0, -10, 0],
+  }}
+  transition={{
+    duration: 2,
+    ease: "easeInOut",
+    repeat: Infinity,
+    repeatType: "mirror",
+  }}
+  className="
+    font-display
+  text-2xl md:text-3xl font-semibold
+    text-transparent
+    bg-clip-text
+    bg-gradient-to-t
+    from-[#00F5FF]
+    via-[#8B5CF6]
+    to-[#FF00FF]
+  "
+>
+ ABU_BAKKAR // SIDDIK
+</motion.h1>
+
 
 </div>
 
