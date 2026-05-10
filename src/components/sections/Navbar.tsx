@@ -115,8 +115,6 @@ export default function Navbar() {
     py-2
     md:px-6
     md:py-2
-    mr-4
-    md:mr-1
     rounded-full
     text-[11px]
     md:text-[12px]
