@@ -155,7 +155,7 @@ export default function Footer() {
   </a>
 
   <a
-    href="www.linkedin.com/in/abubakkarsiddik07"
+    href="https://www.linkedin.com/in/abubakkarsiddik07/"
     target="_blank"
     className="w-11 h-11 flex items-center justify-center rounded-full bg-white/5 text-white/70
     transition-all duration-300 hover:scale-110 hover:-translate-y-1

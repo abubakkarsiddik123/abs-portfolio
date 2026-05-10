@@ -105,59 +105,56 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-
 @layer base {
   body {
     @apply bg-background text-on-background overflow-x-hidden font-body-md;
     background-color: #0B1026;
   }
 }
+/* =========================================
+   GPU PERFORMANCE
+========================================= */
+
+.gpu-layer {
+  transform: translateZ(0);
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}
+
+/* =========================================
+   ANIMATION VARIABLES
+========================================= */
+
+:root {
+  --anim-fast: 2s;
+  --anim-normal: 3s;
+  --anim-slow: 8s;
+  --anim-spin: 10s;
+}
+
+/* =========================================
+   FLOAT
+========================================= */
+
 @keyframes float {
-  0% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-8px);
-  }
+  0%,
   100% {
-    transform: translateY(0px);
-  }
-}
-
-.animate-\[float_4s_ease-in-out_infinite\] {
-  animation: float 4s ease-in-out infinite;
-}/* smoother animations for mobile */
-
-@media (max-width: 768px) {
-  .animate-spin-slow {
-    animation-duration: 14s;
-  }
-
-  .animate-float,
-  .animate-wave,
-  .animate-bounce-soft,
-  .animate-pulse-soft,
-  .animate-fade {
-    animation-duration: 4s;
-  }
-}
-
-/* FLOAT */
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0px);
+    transform: translate3d(0, 0, 0);
   }
 
   50% {
-    transform: translateY(-6px);
+    transform: translate3d(0, -8px, 0);
   }
 }
 
 .animate-float {
-  animation: float 3s ease-in-out infinite;
+  animation: float var(--anim-normal) ease-in-out infinite;
 }
 
-/* SPIN */
+/* =========================================
+   SPIN
+========================================= */
+
 @keyframes spin-slow {
   from {
     transform: rotate(0deg);
@@ -169,67 +166,139 @@
 }
 
 .animate-spin-slow {
-  animation: spin-slow 8s linear infinite;
+  animation: spin-slow var(--anim-spin) linear infinite;
 }
 
-/* WAVE */
+/* =========================================
+   WAVE
+========================================= */
+
 @keyframes wave {
-  0%, 100% {
+  0%,
+  100% {
     transform: rotate(0deg);
   }
 
   50% {
-    transform: rotate(5deg);
+    transform: rotate(6deg);
   }
 }
 
 .animate-wave {
-  animation: wave 2.5s ease-in-out infinite;
+  animation: wave var(--anim-fast) ease-in-out infinite;
+  transform-origin: bottom center;
 }
 
-/* BOUNCE */
+/* =========================================
+   BOUNCE
+========================================= */
+
 @keyframes bounce-soft {
-  0%, 100% {
-    transform: translateY(0);
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
   }
 
   50% {
-    transform: translateY(-6px);
+    transform: translate3d(0, -7px, 0);
   }
 }
 
 .animate-bounce-soft {
-  animation: bounce-soft 2.5s ease infinite;
+  animation: bounce-soft 2.8s ease-in-out infinite;
 }
 
-/* FADE */
-@keyframes fade {
-  0%, 100% {
+/* =========================================
+   FADE
+========================================= */
+
+@keyframes fade-soft {
+  0%,
+  100% {
     opacity: 1;
   }
 
   50% {
-    opacity: 0.5;
+    opacity: 0.55;
   }
 }
 
 .animate-fade {
-  animation: fade 3s ease-in-out infinite;
+  animation: fade-soft 3.5s ease-in-out infinite;
 }
 
-/* PULSE */
+/* =========================================
+   PULSE
+========================================= */
+
 @keyframes pulse-soft {
-  0%, 100% {
+  0%,
+  100% {
     transform: scale(1);
     opacity: 1;
   }
 
   50% {
-    transform: scale(1.05);
-    opacity: 0.8;
+    transform: scale(1.06);
+    opacity: 0.82;
   }
 }
 
 .animate-pulse-soft {
-  animation: pulse-soft 2.5s ease-in-out infinite;
+  animation: pulse-soft 2.6s ease-in-out infinite;
+}
+
+/* =========================================
+   OPTIONAL GLOW
+========================================= */
+
+@keyframes glow-pulse {
+  0%,
+  100% {
+    filter: brightness(1);
+  }
+
+  50% {
+    filter: brightness(1.25);
+  }
+}
+
+.animate-glow {
+  animation: glow-pulse 2.5s ease-in-out infinite;
+}
+
+/* =========================================
+   MOBILE OPTIMIZATION
+========================================= */
+
+@media (max-width: 768px) {
+  .animate-spin-slow {
+    animation-duration: 18s;
+  }
+
+  .animate-float,
+  .animate-wave,
+  .animate-bounce-soft,
+  .animate-pulse-soft {
+    animation-duration: 5s;
+  }
+
+  .animate-fade {
+    animation: none;
+  }
+}
+
+/* =========================================
+   ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
