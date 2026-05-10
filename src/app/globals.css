@@ -126,4 +126,110 @@
 
 .animate-\[float_4s_ease-in-out_infinite\] {
   animation: float 4s ease-in-out infinite;
+}/* smoother animations for mobile */
+
+@media (max-width: 768px) {
+  .animate-spin-slow {
+    animation-duration: 14s;
+  }
+
+  .animate-float,
+  .animate-wave,
+  .animate-bounce-soft,
+  .animate-pulse-soft,
+  .animate-fade {
+    animation-duration: 4s;
+  }
+}
+
+/* FLOAT */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* SPIN */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 8s linear infinite;
+}
+
+/* WAVE */
+@keyframes wave {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(5deg);
+  }
+}
+
+.animate-wave {
+  animation: wave 2.5s ease-in-out infinite;
+}
+
+/* BOUNCE */
+@keyframes bounce-soft {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.animate-bounce-soft {
+  animation: bounce-soft 2.5s ease infinite;
+}
+
+/* FADE */
+@keyframes fade {
+  0%, 100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-fade {
+  animation: fade 3s ease-in-out infinite;
+}
+
+/* PULSE */
+@keyframes pulse-soft {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 2.5s ease-in-out infinite;
 }
