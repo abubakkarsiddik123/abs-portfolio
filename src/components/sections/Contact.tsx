@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
+import { FaEnvelope, FaMapMarkerAlt, FaPhoneAlt } from "react-icons/fa";
 
 export default function Contact() {
   const formRef = useRef<HTMLFormElement>(null);
@@ -14,10 +15,10 @@ export default function Contact() {
 
     try {
       await emailjs.sendForm(
-        "service_q8hg0bz",    
-        "template_op9b9ng",  
+        "service_q8hg0bz",
+        "template_op9b9ng",
         formRef.current!,
-        "ppwJNWL0h3gBLoPi-"   
+        "ppwJNWL0h3gBLoPi-"
       );
 
       alert("Message sent successfully ✅");
@@ -61,15 +62,30 @@ export default function Contact() {
             </p>
 
             <div className="space-y-4 text-sm">
+              {/* email */}
 
-              <div className="flex items-center gap-3 text-[#00F5FF]">
-                <span className="material-symbols-outlined">alternate_email</span>
-                <span>abubakkar872884@gmail.com</span>
+              <div className="flex items-center gap-3 text-[#00F5FF] group">
+                <FaEnvelope className="text-xl transition-transform duration-300 group-hover:scale-125 group-hover:rotate-12" />
+                <span className="text-base break-all">
+                  abubakkar872884@gmail.com
+                </span>
               </div>
 
-              <div className="flex items-center gap-3 text-[#FF00FF]">
-                <span className="material-symbols-outlined">location_on</span>
-                <span>Rangpur, Bangladesh</span>
+              {/* location  */}
+              <div className="flex items-center gap-3 text-[#FF00FF] group">
+                <FaMapMarkerAlt className="text-xl transition-transform duration-300 group-hover:scale-125 group-hover:-translate-y-1" />
+                <span className="text-base">
+                  Rangpur, Bangladesh
+                </span>
+              </div>
+
+              {/* phone number */}
+              <div className="flex items-center gap-3 text-[#FF8A00] group">
+                <FaPhoneAlt className="text-xl transition-transform duration-300 group-hover:scale-125 group-hover:-rotate-12" />
+
+                <span className="text-base font-semibold tracking-wide">
+                  +880 1403 873 664
+                </span>
               </div>
 
             </div>
@@ -119,3 +135,4 @@ export default function Contact() {
     </section>
   );
 }
+
