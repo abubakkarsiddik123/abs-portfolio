@@ -1,6 +1,4 @@
 
-"use client";
-
 import {
   FaJs,
   FaReact,
@@ -90,7 +88,7 @@ export default function Skills() {
               rounded-3xl
               bg-white/5
               border border-white/10
-              backdrop-blur-xl
+              backdrop-blur-md
               transition-all duration-500
               hover:scale-105
               hover:-translate-y-2
